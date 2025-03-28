@@ -1,0 +1,426 @@
+/* =================================================
+   ESTILOS GENERALES
+   ================================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Prevenir zoom en iOS */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* =================================================
+   PANTALLA DE INICIO DE SESIÓN
+   ================================================= */
+#login-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 320px;
+  background: #444;
+  padding: 20px;
+  margin: 100px auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#login-container h2 {
+  margin-top: 0;
+  color: #FFD700;
+}
+
+#login-container input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background: #555;
+  color: white;
+  font-size: 16px;
+}
+
+#login-container button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  background-color: #1E90FF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+#login-container button:hover {
+  background-color: #0066cc;
+}
+
+/* Destacar campos obligatorios */
+input:required, select:required {
+  border-left: 3px solid #FFD700 !important;
+}
+
+/* Estilo del contenedor de términos y condiciones */
+.terms-container {
+  display: flex;
+  align-items: center;
+  margin: 15px auto;
+  width: 90%;
+  text-align: left;
+}
+
+.terms-container input[type="checkbox"] {
+  width: auto !important;
+  margin-right: 10px;
+}
+
+.terms-container label {
+  color: white;
+  font-size: 0.9em;
+}
+
+/* Estilos para selects */
+select {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #666;
+  background: #555;
+  color: white;
+  font-size: 16px;
+}
+
+/* Marca los campos con error */
+.input-error {
+  border: 1px solid #ff4d4d !important;
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+
+/* Mensaje de campos requeridos */
+.required-message {
+  color: #FFD700;
+  font-size: 0.8em;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Contenedor de botones */
+.button-container {
+  margin-top: 20px;
+}
+
+/* Botón de cancelar */
+.cancel-btn {
+  background-color: #777 !important;
+}
+
+.cancel-btn:hover {
+  background-color: #555 !important;
+}
+
+/* =================================================
+   BARRA SUPERIOR - Para todos los botones
+   ================================================= */
+#top-bar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#top-bar button {
+  padding: 6px 10px;
+  font-size: 0.85em;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease;
+}
+
+/* Botones de música y efectos */
+#toggleMusic, #toggleSFX {
+  background-color: #555;
+}
+
+#toggleMusic:hover, #toggleSFX:hover {
+  background-color: #777;
+}
+
+/* Botón de salir */
+#logoutBtn {
+  background-color: #e74c3c;
+}
+
+#logoutBtn:hover {
+  background-color: #c0392b;
+}
+
+/* =================================================
+   ÁREA DEL JUEGO
+   ================================================= */
+#game-container {
+  display: none;
+  position: absolute;
+  top: 50px; /* debajo del top-bar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #444;
+  overflow: hidden;
+}
+
+/* =================================================
+   TABLA DE POSICIONES (LEADERBOARD)
+   ================================================= */
+#leaderboard-container {
+  position: absolute;
+  top: 60px; /* Posición ajustada debajo de la barra superior */
+  right: 20px;
+  width: 90%;
+  max-width: 320px;
+  background: #111;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 998;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#leaderboard-container h2 {
+  margin: 0 0 10px;
+  font-size: 1.4em;
+  color: white;
+  background: #000;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Estilo de la tabla */
+#leaderboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#leaderboard-container th,
+#leaderboard-container td {
+  padding: 8px;
+  text-align: left;
+  font-size: 0.95em;
+  color: white;
+  border-bottom: 1px solid #444;
+}
+
+#leaderboard-container th {
+  background: #222;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+#leaderboard-container td {
+  background: #333;
+  text-align: center;
+}
+
+/* Destacar la mejor puntuación */
+#leaderboard-container tr:first-child td {
+  background: #FFD700;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Filas alternas */
+#leaderboard-container tr:nth-child(even) td {
+  background: #2a2a2a;
+}
+
+/* Icono para mostrar/ocultar tabla en móviles */
+/* Estilos actualizados para el icono del leaderboard */
+#leaderboard-icon {
+  position: absolute;
+  right: 20px;
+  font-size: 2em;
+  background: #FFD700;
+  color: #000;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  /* Posición por defecto para pantallas grandes */
+  bottom: 20px;
+}
+
+/* Posición ajustada para dispositivos móviles */
+@media (max-width: 767px) {
+  #leaderboard-icon {
+    bottom: 70px; /* Mucho más arriba en móviles */
+    right: 15px;
+    font-size: 1.8em; /* Ligeramente más pequeño */
+    padding: 10px;
+  }
+}
+
+/* Ajuste específico para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  #leaderboard-icon {
+    bottom: 80px; /* Aún más arriba en pantallas muy pequeñas */
+    right: 10px;
+    padding: 8px; /* Ligeramente más pequeño */
+  }
+}
+
+/* Ajuste para modo horizontal en móviles */
+@media (max-height: 500px) {
+  #leaderboard-icon {
+    bottom: 60px;
+    right: 10px;
+  }
+}
+
+/* =================================================
+   SISTEMA DE MENSAJES PERSONALIZADOS
+   ================================================= */
+#message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 9998;
+  display: none;
+}
+
+#custom-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333 !important; /* Forzar el color de fondo */
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  z-index: 9999;
+  display: none;
+  text-align: center;
+  min-width: 250px;
+  color: white !important; /* Forzar el color del texto */
+}
+
+#message-text {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white !important; /* Forzar color de texto */
+}
+
+#message-btn {
+  padding: 10px 25px;
+  background: #1E90FF !important; /* Forzar color de fondo */
+  color: white !important; /* Forzar color de texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+#message-btn:hover {
+  background: #0066CC !important;
+}
+
+/* =================================================
+   AJUSTES ESPECÍFICOS PARA iOS
+   ================================================= */
+@supports (-webkit-touch-callout: none) {
+  /* Más espacio para el tablero en móviles iOS */
+  #game-container {
+    top: 70px;
+  }
+}
+
+/* =================================================
+   MEDIA QUERIES
+   ================================================= */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 768px) {
+  #leaderboard-container {
+    max-height: 400px;
+    overflow-y: auto;
+    font-size: 0.9em;
+  }
+}
+
+/* Dispositivos móviles */
+@media (max-width: 600px) {
+  /* Ajustes para login */
+  #login-container {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  /* Ajustes para leaderboard */
+  #leaderboard-container {
+    width: 90%;
+    right: 5%;
+    top: 60px;
+    max-height: 300px;
+  }
+
+  /* Ajuste para área de juego */
+  #game-container .phaser-text {
+    margin-top: 40px; /* Espacio para botones */
+  }
+  
+  #top-bar {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+}
+
+/* Dispositivos muy pequeños */
+@media (max-width: 400px) {
+  #top-bar button {
+    padding: 5px 8px;
+    font-size: 0.8em;
+  }
+  
+  /* Mostrar solo iconos en botones de sonido */
+  #toggleMusic span, #toggleSFX span {
+    display: none;
+  }
+  
+  #toggleMusic i, #toggleSFX i {
+    margin-right: 0;
+  }
+}
